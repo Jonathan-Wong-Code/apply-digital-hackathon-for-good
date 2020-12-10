@@ -1,42 +1,50 @@
-import React, {useState, useEffect} from 'react'
-
+import React, {useState} from 'react'
+import './storyPanel.css'
 const StoryPanel = () =>  {
 
-  const [textInput, setTextInput] = useState('');
-  const [file, setFile] = useState('');
+  const [text, setText] = useState('');
+  const [image, setImage] = useState(null);
 
-  const onFileChange = e => {
-  const file = e.currentTarget.files[0];
-  file.current = e.target.files[0];
+  const handleImage = (event) =>
+    setImage(URL.createObjectURL(event.target.files[0]));
+  
+  const handleText =(e) => {
+    const {value} = e.currentTarget
 
-  const fileReader = new FileReader();
-  fileReader.onload = () => {
-    const newFile = {
-      name: file.name,
-      size: file.size,
-      type: file.type, // MIME type
-      data: fileReader.result,
-      isUploading: false
-    };
-
-    // setFile({ ...values, photoFile: file, photo: newFile });
-  };
+    setText(value)
+  }
 
   return (
-    <div>
-      This is a Story Panel
+    <div className="storyPanel">
+      <div>
+        <div className="storyPanel__input storyPanel__input-text">
+          <label htmlFor="photo">Add Story Text</label>
+        </div>
+        <div className="storyPanel__input storyPanel__input-image">
+          <label htmlFor="photo">Upload New Photo</label>
+          <input
+            type="file"
+            className="input__text-photo"
+            accept="image/*"
+            required
+            capture="environment"
+            onInput={(event) => handleImage(event)}
+          />
+        </div>
+      </div>
 
-      <label htmlFor="photo">Upload New Photo</label>
-      <FileInput
-        type="file"
-        accept="image/*"
-        id="photo"
-        name="photo"
-        onChange={onFileChange}
-      />
+      <div className="storyPanel__container">
+        <div className="storyPanel__text-container">
+            {/* <p className="storyPanel__text">{text}</p> */}
+          <textarea value={text} onChange={(e) => handleText(e)}/>
+        </div>
+        <div className="storyPanel__image-container">
+          <img className="storyPanel__image" src={image} alt="Please upload a background..." />
+        </div>
+      </div>
     </div>
   )
 }
-}
+
 
 export default StoryPanel
