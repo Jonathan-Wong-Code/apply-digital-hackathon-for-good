@@ -34,7 +34,11 @@
 
 .storyPanel__icon-container {
   background: grey;
-  display: flex
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .storyPanel__icon {
