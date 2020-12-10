@@ -1,5 +1,29 @@
+.createPanel__button {
+  padding: 10px 20px;
+  display: block;
+}
+
+.createPanel__button--return {
+  margin-right: auto;
+}
+/* createPanel__button--submit */
+/* createPanel__button--delete */
+
+
 .storyPanel {
-  display: flex;
+  display: grid;
+  height: 80vh;
+  grid-template-columns: 150px auto;
+  grid-gap: 100px;
+}
+
+.storyPanel__icon-container {
+  background: grey;
+  display: flex
+}
+
+.storyPanel__icon {
+
 }
 
 .storyPanel__input {
@@ -14,13 +38,11 @@
 
 .storyPanel__container {
   display: flex;
-  margin: 0 auto;
   justify-content: space-evenly;
   align-items: center;
-  max-width: 80%;
-  height: 60vh;
+  max-width: 95%;
+  height: 100%;
   flex-basis: 80%;
-  flex: 1;
   border: 1px solid black;
 }
   
