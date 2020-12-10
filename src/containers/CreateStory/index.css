@@ -1,1 +1,6 @@
-
+.create-story__panel-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 64px;
+  justify-content: center;
+}
