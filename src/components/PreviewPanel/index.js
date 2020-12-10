@@ -7,8 +7,12 @@ const PreviewPanel = ({ panel, onClick }) => {
         <img src={panel.img} alt="" />
       </div>
       <div>
-        <Link to="/editPanel">Edit</Link>
-        <button onClick={onClick}>Delete</button>
+        <Link to="/editPanel" className="preview-panel__action-button">
+          Edit
+        </Link>
+        <button onClick={onClick} className="preview-panel__action-button">
+          Delete
+        </button>
       </div>
     </>
   );
