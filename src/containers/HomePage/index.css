@@ -1,6 +1,18 @@
 .homepage__link {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.4;
   cursor: pointer;
   padding: 6px 12px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  display: inline-block;
+  transition: 0.2s all ease;
+}
+
+.homepage__link:hover {
+  background: black;
+  color: white;
+  transform: translateY(-3px);
 }
