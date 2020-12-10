@@ -7,9 +7,9 @@ const PreviewPanel = ({ panel, onClick }) => {
       <div style={{ height: 300 }}>
         <img src={panel.img} alt="" />
       </div>
-      <div>
+      <div className="preview-panel__button-container">
         <Link
-          to="/editPanel"
+          to={`/editPanel/${panel.id}`}
           className="preview-panel__action-button"
           style={{ fontSize: "16px", marginRight: "12px" }}
         >
