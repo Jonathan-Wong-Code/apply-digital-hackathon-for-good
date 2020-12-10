@@ -75,7 +75,18 @@ const ReadStory = () => {
               Previous
             </span>
           </button>
-          <img src={playButton} alt="" className="read-story__play-button" />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <img src={playButton} alt="" className="read-story__play-button" />
+            <span style={{ transform: "translateY(20px)", fontSize: "16px" }}>
+              Play
+            </span>
+          </div>
           <button onClick={goToNextPage} className="read-story__button">
             <span
               className="read-story__button-label"
