@@ -25,6 +25,8 @@ const ReadStory = () => {
     setPage((page) => page + 1);
   };
 
+  console.log(story);
+
   return (
     <section className="read-story__section">
       <div
