@@ -4,9 +4,7 @@ import "./index.css";
 
 const Header = () => {
   return (
-    <header
-      style={{ display: "flex", alignItems: "center", padding: "32px 0" }}
-    >
+    <header style={{ display: "flex", alignItems: "center", padding: "32px" }}>
       <h1 style={{ width: "100%" }}>Reel Science</h1>
       <nav style={{ width: "100%" }}>
         <ul className="nav-list">

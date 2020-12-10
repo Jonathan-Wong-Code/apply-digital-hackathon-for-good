@@ -8,6 +8,7 @@ import Dashboard from "./containers/Dashboard";
 import { StoryProvider } from "./contexts/story";
 import Header from "./components/Header";
 import ReadStory from "./containers/ReadStory";
+import HomePage from "./containers/HomePage";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Router>
           <Header />
           <Switch>
-            <Route path="/" exact component={Dashboard} />
+            <Route path="/" exact component={HomePage} />
             <Route path="/createStory" component={CreateStory} />
             <Route path="/createPanel" component={CreatePanel} />
             <Route path="/story/:id" component={Panel} />

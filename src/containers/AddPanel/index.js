@@ -1,25 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import StoryPanel from '../../components/StoryPanel'
+import React, { useState, useEffect } from "react";
+import StoryPanel from "../../components/StoryPanel";
 
 const CreatePanel = () => {
+  const [panelType, setPanelType] = useState("");
 
-  const [panelType, setPanelType] = useState('')
+  const onSubmit = () => {};
 
-  const onSubmit =() => {
-    
-  }
+  return (
+    <div className="createPanel">
+      <div className></div>
 
-  return <div className="createPanel">
-    <div className>
-
-
-
+      <StoryPanel />
     </div>
-    
-    <StoryPanel />
-
-
-  </div>
-}
+  );
+};
 
 export default CreatePanel;
