@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useReducer } from "react";
+
+const reducer = (oldState, newState) => ({ ...oldState, ...newState });
 
 const CreateStory = () => {
-  return <div>Create Story</div>
-}
+  const [state, setState] = useReducer(reducer, {});
+
+  return <div>Create Story</div>;
+};
 
 export default CreateStory;
