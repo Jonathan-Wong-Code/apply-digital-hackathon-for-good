@@ -51,7 +51,7 @@ const reducer = (state, action) => {
 
 export const StoryProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, mockStories);
-
+  console.log(state)
   return (
     <StoryContextState.Provider value={state}>
       <StoryContextDispatch.Provider value={dispatch}>
