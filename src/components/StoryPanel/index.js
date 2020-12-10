@@ -68,7 +68,7 @@ const StoryPanel = ({addText, onFileChange, image, text, handleText, handleTextA
               <img className="storyPanel__image" src={image} alt="" />
           </div>}
           {addText && <div className="storyPanel__text-container">
-            <textarea value={text} rows="20" cols="40" placeholder={"Please enter in story text"}  onChange={(e) => handleText(e)}/>
+            <textarea value={text} rows="20" cols="40" placeholder={"Please enter in story text"} style={{fontFamily: "Arial",fontSize: '16px',lineHeight: '1.4'}}  onChange={(e) => handleText(e)}/>
           </div>}
         </div>
       </div>
