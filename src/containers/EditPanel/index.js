@@ -134,7 +134,7 @@ useEffect(() => {
         <div style={{display: 'flex'}}>
          <button className="create-story__delete-button" onClick={(e) => handleDelete(e)}>
             <span style={{ marginRight: "8px" }}>Delete</span>
-            <img
+             <img
               src={trashCan}
               alt=""
               style={{ width: "25px", height: "29px" }}
