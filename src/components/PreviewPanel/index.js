@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./index.css";
 const PreviewPanel = ({ panel, onClick }) => {
   return (
     <>
@@ -7,10 +8,18 @@ const PreviewPanel = ({ panel, onClick }) => {
         <img src={panel.img} alt="" />
       </div>
       <div>
-        <Link to="/editPanel" className="preview-panel__action-button">
+        <Link
+          to="/editPanel"
+          className="preview-panel__action-button"
+          style={{ fontSize: "16px", marginRight: "12px" }}
+        >
           Edit
         </Link>
-        <button onClick={onClick} className="preview-panel__action-button">
+        <button
+          onClick={onClick}
+          className="preview-panel__action-button"
+          style={{ fontSize: "16px" }}
+        >
           Delete
         </button>
       </div>
