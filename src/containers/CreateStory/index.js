@@ -4,6 +4,7 @@ import "./index.css";
 import { Link } from "react-router-dom";
 import { useStoryState } from "../../contexts/story";
 import { useStoryDispatch } from "../../contexts/story";
+import trashCan from "../../images/trashCan.png";
 
 const CreateStory = () => {
   const stories = useStoryState();
@@ -11,8 +12,27 @@ const CreateStory = () => {
   const { deletePanel } = useStoryDispatch();
 
   return (
-    <div>
-      <h2>Create your story here!</h2>
+    <section style={{ padding: "32px 0" }}>
+      <div
+        style={{ display: "flex", alignItems: "center", marginBottom: "64px" }}
+      >
+        <h2 style={{ width: "100%" }}>
+          Drag and drop the panels to rearrange your story.
+        </h2>
+        <div style={{ display: "flex", width: "100%" }}>
+          <button className="create-story__button">Publish</button>
+          <button className="create-story__button">Save</button>
+          <button className="create-story__button">Preview</button>
+          <button className="create-story__delete-button">
+            <span style={{ marginRight: "8px" }}>Delete</span>
+            <img
+              src={trashCan}
+              alt=""
+              style={{ width: "25px", height: "29px" }}
+            />
+          </button>
+        </div>
+      </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <ul className="create-story__panel-list">
           {stories.map((panel) => {
@@ -35,7 +55,7 @@ const CreateStory = () => {
           </Link>
         </ul>
       </div>
-    </div>
+    </section>
   );
 };
 
