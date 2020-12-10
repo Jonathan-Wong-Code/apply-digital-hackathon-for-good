@@ -5,3 +5,14 @@
 .nav-list li {
   margin-right: 16px;
 }
+
+.nav-list a {
+  transition: 0.2s all ease;
+  padding-bottom: 8px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-list a:hover {
+  border-bottom: 2px solid black;
+  padding-bottom: 4px;
+}
