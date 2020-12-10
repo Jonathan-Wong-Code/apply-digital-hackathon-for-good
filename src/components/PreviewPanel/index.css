@@ -6,7 +6,21 @@
   display: inline-block;
   line-height: 1.4;
   border-radius: 10px;
-  width: 200px;
-  height: 32px;
+  width: 100px;
+  padding: 6px 0;
   text-align: center;
+  transition: 0.2s all ease;
+  cursor: pointer;
+}
+
+.preview-panel__action-button:hover {
+  background: black;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.preview-panel__button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
 }
