@@ -83,6 +83,7 @@ const CreatePanel = () => {
         <div className="storyPanel">
           <div className="storyPanel__icon-container">
             <div className="storyPanel__input storyPanel__input-text">
+              <label htmlFor="photo">Select</label>
               <label htmlFor="photo">Add Image</label>
               <input
                 type="file"
@@ -92,8 +93,11 @@ const CreatePanel = () => {
                 onChange={onFileChange}
                 style={{display: "none"}}
               />
+              <label>Draw</label>
               <label htmlFor="textAdd">Add Text</label>
               <input style={{display: "none"}} type="checkbox" value={addText} checked={addText} id="textAdd" onChange={(e) => handleTextAdd(e)}/>
+              <label>Stamps</label>
+              <label>Shapes</label>
             </div>
           </div>
           <div className="storyPanel__container">
