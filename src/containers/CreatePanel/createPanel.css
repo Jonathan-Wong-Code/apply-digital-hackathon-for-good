@@ -20,13 +20,7 @@
   margin-right: auto;
 }
 
-.createPanel__button--save {
-  border: 2px solid black;
-  border-radius: 10px;
-  margin-right: 12px;
-}
-
-.createPanel__button--delete {
+.createPanel__button--delete:hover  {
   
 }
 

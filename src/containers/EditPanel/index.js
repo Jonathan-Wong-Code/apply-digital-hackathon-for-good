@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom'
 import StoryPanel from '../../components/StoryPanel'
 import { useStoryState } from "../../contexts/story";
 import { useStoryDispatch } from "../../contexts/story";
+import trashCan from "../../images/trashCan.png";
 
 const EditPanel = () => {
   
@@ -16,13 +17,14 @@ const history = useHistory();
 const [caption, setCaption] = useState('');
 const [image, setImage] = useState('');
 
+const contextStory = stories.find(story => story.id === params.id)
+const indexOfSlide = stories.indexOf(contextStory)
+
 
 useEffect(() => {
 
   if (params && params.id) {
-    const contextStory = stories.find(story => story.id === params.id)
     const {img, text} = contextStory;
-    console.log(contextStory)
     if (text) {
       setAddText(true)
       setCaption(text)
@@ -92,13 +94,35 @@ useEffect(() => {
     deletePanel(params.id)
   }
 
+  // const goToNextPage = () => {
+  //   const contextStory = stories.find(story => story.id === params.id)
+  //   stories.indexOf(contextStory)
+
+
+  // }
+  
+  const goToPreviousPage = () => {
+
+    
+
+  }
+
 
   return (
     <div className="createPanel">
       <div style={{display: "flex", }}>
         <Link to="/createStory" className="createPanel__button createPanel__button--return">Return to Storyboard</Link>
         <button className="createPanel__button createPanel__button--save" onClick={(e) => handleSubmit(e)}>Save</button>
-        <button className="createPanel__button createPanel__button--delete" onClick={(e) => handleDelete(e)}>Delete</button>
+        <div style={{display: 'flex'}}>
+         <button className="create-story__delete-button" onClick={(e) => handleDelete(e)}>
+            <span style={{ marginRight: "8px" }}>Delete</span>
+            <img
+              src={trashCan}
+              alt=""
+              style={{ width: "25px", height: "29px" }}
+            />
+          </button>
+        </div>
       </div>
 
       <StoryPanel 
@@ -110,6 +134,33 @@ useEffect(() => {
         handleText={handleText}
         handleTextAdd={handleTextAdd}
       />
+
+      {/* <div className="read-story__button-container">
+        <div className="read-story__button-container">
+          <button onClick={goToPreviousPage} className="read-story__button">
+            <img src={leftArrow} alt="" style={{}} />
+            <span
+              className="read-story__button-label"
+              style={{ marginLeft: 16, fontSize: 16 }}
+            >
+              Previous
+            </span>
+          </button>
+          <button onClick={goToNextPage} className="read-story__button">
+            <span
+              className="read-story__button-label"
+              style={{ marginRight: 16, fontSize: 16 }}
+            >
+              Next
+            </span>
+            <img
+              src={rightArrow}
+              alt=""
+              style={{ width: 50, height: "auto" }}
+            />
+          </button>
+        </div>
+      </div> */}
     </div>
   )
 }
