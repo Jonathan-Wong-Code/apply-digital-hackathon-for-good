@@ -3,7 +3,7 @@ import { useStoryState } from "../../contexts/story";
 import leftArrow from "../../images/leftArrow.png";
 import rightArrow from "../../images/rightArrow.png";
 import playButton from "../../images/play-button.png";
-
+import breadCrumb from "../../images/breadcrumbArrow.png";
 import "./index.css";
 const ReadStory = () => {
   const [page, setPage] = React.useState(0);
@@ -27,6 +27,35 @@ const ReadStory = () => {
 
   return (
     <section className="read-story__section">
+      <div
+        className="read-story__top-section"
+        style={{ marginBottom: "32px", position: "relative" }}
+      >
+        <div
+          className="read-story__bread-crumb"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            position: "absolute",
+          }}
+        >
+          <img
+            src={breadCrumb}
+            alt=""
+            style={{ width: "36px", height: "15px", marginRight: "16px" }}
+          />
+          <span>Return to topic</span>
+        </div>
+        <h2
+          style={{
+            width: "100%",
+            fontSize: "36px",
+            textAlign: "center",
+          }}
+        >
+          {story[page].title}
+        </h2>
+      </div>
       <div className="read-story__story-panel">
         <div className="read-story__image read-story__half">
           <img src={story[page].img} alt="" />
