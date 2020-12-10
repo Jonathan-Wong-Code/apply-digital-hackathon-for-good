@@ -1,37 +1,111 @@
-import React, {useState, useEffect} from 'react';
-import StoryPanel from '../../components/StoryPanel'
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
+import { v4 as uuidv4 } from "uuid";
+import { useStoryDispatch } from "../../contexts/story";
+import './createPanel.css'
 
 const CreatePanel = () => {
 
-  const [panelType, setPanelType] = useState('')
+  const { addPanel } = useStoryDispatch();
 
-  const handlePanelType = (e) => {
+  const [text, setText] = useState('');
+  const [image, setImage] = useState('');
+  const [addText, setAddText] = useState(false);
+  const history = useHistory();
+
+  const onFileChange = e => {
+    const file = e.currentTarget.files[0];
+    file.current = e.target.files[0];
+
+    const fileReader = new FileReader();
+    
+    fileReader.onload = () => {
+      const newFile = {
+        name: file.name,
+        size: file.size,
+        type: file.type, // MIME type
+        data: fileReader.result,
+        isUploading: false
+      };
+
+      setImage( newFile.data );
+    };
+
+    fileReader.onabort = () => {
+      alert('Reading aborted');
+    };
+
+    fileReader.onerror = () => {
+      alert('File reading error');
+    };
+
+    fileReader.readAsDataURL(file);
+  };
+
+
+  
+  const handleText =(e) => {
     const {value} = e.currentTarget
-
-    setPanelType(value)
+    setText(value)
   }
 
-  const isStory = panelType === 'story'
-  const isGame = panelType === 'game'
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const newPanel =  {
+      img: image,
+      text,
+      id: uuidv4(),
+    }
+
+    addPanel(newPanel)
+    history.push('/createStory');
+  }
+
+  const handleTextAdd = (e) => {
+    const {checked} = e.currentTarget
+
+    setAddText(checked)
+    setText('')
+
+  }
+
 
   return (
     <div className="createPanel">
-      <div className="createPanel__select-wrapper" style={{marginBottom: "50px", display:'block'}}>
-        <select className="createPanel__select" value={panelType} onChange={(e) => handlePanelType(e)}>
-          <option value="">Please select a panel type</option>
-          <option value="story">Story Panel</option>
-          <option value="game">Game Panel</option>
-        </select>
+      <div style={{display: "flex", }}>
+        <Link to="/createStory" class="createPanel__button createPanel__button--return">Return to Storyboard</Link>
+        <button class="createPanel__button createPanel__button--save" onClick={(e) => handleSubmit(e)}>Save</button>
+        <button class="createPanel__button createPanel__button--delete" onClick={(e) => handleSubmit(e)}>Delete</button>
       </div>
 
-      <div>
-        {isStory && <StoryPanel />}
-
+      <div style={{marginTop: "50px", display:'block'}}>
+        <div className="storyPanel">
+          <div className="storyPanel__icon-container">
+            <div className="storyPanel__input storyPanel__input-text">
+              <label htmlFor="photo">Add Image</label>
+              <input
+                type="file"
+                accept="image/*"
+                id="photo"
+                name="photo"
+                onChange={onFileChange}
+                style={{display: "none"}}
+              />
+              <label htmlFor="textAdd">Add Text</label>
+              <input style={{display: "none"}} type="checkbox" value={addText} checked={addText} id="textAdd" onChange={(e) => handleTextAdd(e)}/>
+            </div>
+          </div>
+          <div className="storyPanel__container">
+            {addText && <div className="storyPanel__text-container">
+              <textarea value={text} rows="20" cols="40" placeholder={"Please enter in story text"}  onChange={(e) => handleText(e)}/>
+            </div>}
+            <div className="storyPanel__image-container">
+              {image && <img className="storyPanel__image" src={image} alt="" />}
+            </div>
+          </div>
+        </div>
       </div>
-
-
-
-
     </div>
   )
 }
