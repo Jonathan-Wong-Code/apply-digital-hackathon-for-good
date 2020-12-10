@@ -5,20 +5,22 @@ import shapes from '../../images/shapes.png'
 import mouse from '../../images/mouse-pointer.png'
 import textIcon from '../../images/text-icon.png'
 import imageIcon from '../../images/image-icon.png'
+import './style.css'
+
 
 const StoryPanel = ({addText, onFileChange, image, text, handleText, handleTextAdd}) => {
   return (
     <div style={{marginTop: "50px", display:'block'}}>
       <div className="storyPanel">
         <div className="storyPanel__icon-container">
-            <div style={{ width: "25px", height: "29px" }}>
+            <div className="icon" style={{ width: "25px", height: "29px" }}>
               <img
                 src={mouse}
                 alt=""
                 style={{width: 'auto'}}
               />
             </div>
-            <label htmlFor="photo" style={{ width: "25px", height: "29px" }}><img
+            <label className="icon"  htmlFor="photo" style={{ width: "25px", height: "29px" }}><img
                 src={imageIcon}
                 alt=""
                 style={{width: 'auto'}}
@@ -32,14 +34,14 @@ const StoryPanel = ({addText, onFileChange, image, text, handleText, handleTextA
               onChange={onFileChange}
               style={{display: "none"}}
             />
-            <div style={{ width: "25px", height: "29px" }}>
+            <div className="icon"  style={{ width: "25px", height: "29px" }}>
               <img
                 src={pencil}
                 alt=""
                 style={{width: 'auto'}}
               />
             </div>
-            <label htmlFor="textAdd" style={{ width: "25px", height: "29px" }}>
+            <label className="icon"  htmlFor="textAdd" style={{ width: "25px", height: "29px" }}>
               <img
                 src={textIcon}
                 alt=""
@@ -47,14 +49,14 @@ const StoryPanel = ({addText, onFileChange, image, text, handleText, handleTextA
               />
             </label>
             <input style={{display: "none"}} type="checkbox" value={addText} checked={addText} id="textAdd" onChange={(e) => handleTextAdd(e)}/>
-            <div style={{ width: "25px", height: "29px" }}>
+            <div className="icon"  style={{ width: "25px", height: "29px" }}>
               <img
                 src={brush}
                 alt=""
                 style={{width: 'auto'}}
               />
             </div>
-            <div style={{ width: "25px", height: "29px" }}>
+            <div className="icon"  style={{ width: "25px", height: "29px" }}>
               <img
                 src={shapes}
                 alt=""
