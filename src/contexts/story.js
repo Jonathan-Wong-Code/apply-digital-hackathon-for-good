@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const mockStories = [
   {
+    title: "Title 1",
     img:
       "https://images.unsplash.com/photo-1607469256721-13472920da4e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     text:
@@ -10,6 +11,7 @@ const mockStories = [
     id: uuidv4(),
   },
   {
+    title: "Title 2",
     img:
       "https://images.unsplash.com/photo-1607615186293-26ac54d57967?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     text:
@@ -17,6 +19,7 @@ const mockStories = [
     id: uuidv4(),
   },
   {
+    title: "Title 3",
     img:
       "https://images.unsplash.com/photo-1607608879760-c1464a648e72?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     text:
@@ -51,7 +54,7 @@ const reducer = (state, action) => {
 
 export const StoryProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, mockStories);
-  console.log(state)
+  console.log(state);
   return (
     <StoryContextState.Provider value={state}>
       <StoryContextDispatch.Provider value={dispatch}>
