@@ -1,0 +1,12 @@
+.read-story__story-panel {
+  display: flex;
+}
+
+.read-story__button {
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
