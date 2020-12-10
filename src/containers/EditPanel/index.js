@@ -6,6 +6,8 @@ import StoryPanel from '../../components/StoryPanel'
 import { useStoryState } from "../../contexts/story";
 import { useStoryDispatch } from "../../contexts/story";
 import trashCan from "../../images/trashCan.png";
+import leftArrow from "../../images/leftArrow.png";
+import rightArrow from "../../images/rightArrow.png";
 
 const EditPanel = () => {
   
@@ -91,19 +93,35 @@ useEffect(() => {
   }
 
   const handleDelete = () => {
-    deletePanel(params.id)
+    deletePanel(params.id);
+    history.push('/createStory');
   }
 
-  // const goToNextPage = () => {
-  //   const contextStory = stories.find(story => story.id === params.id)
-  //   stories.indexOf(contextStory)
+  const goToNextPage = () => {
+    if (indexOfSlide + 1 !== stories.length) {
+      const newPanel =  {
+        img: image,
+        text: caption,
+        id: params.id
+      }
 
+      updatePanel(newPanel)
+      history.push(`/editPanel/${stories[indexOfSlide + 1].id}`)
+    }
 
-  // }
+  }
   
   const goToPreviousPage = () => {
+    if (indexOfSlide - 1  !== - 1) {
+      const newPanel =  {
+        img: image,
+        text: caption,
+        id: params.id
+      }
 
-    
+      updatePanel(newPanel)
+      history.push(`/editPanel/${stories[indexOfSlide - 1].id}`)
+    }
 
   }
 
@@ -135,9 +153,9 @@ useEffect(() => {
         handleTextAdd={handleTextAdd}
       />
 
-      {/* <div className="read-story__button-container">
+      <div className="read-story__button-container">
         <div className="read-story__button-container">
-          <button onClick={goToPreviousPage} className="read-story__button">
+          {(indexOfSlide -1 !== -1) && <button onClick={() => goToPreviousPage()} className="read-story__button">
             <img src={leftArrow} alt="" style={{}} />
             <span
               className="read-story__button-label"
@@ -145,8 +163,8 @@ useEffect(() => {
             >
               Previous
             </span>
-          </button>
-          <button onClick={goToNextPage} className="read-story__button">
+          </button>}
+          {(indexOfSlide + 1 !== stories.length) && <button onClick={() => goToNextPage()} className="read-story__button">
             <span
               className="read-story__button-label"
               style={{ marginRight: 16, fontSize: 16 }}
@@ -158,9 +176,9 @@ useEffect(() => {
               alt=""
               style={{ width: 50, height: "auto" }}
             />
-          </button>
+          </button>}
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }
