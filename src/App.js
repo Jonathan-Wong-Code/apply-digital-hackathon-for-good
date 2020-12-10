@@ -12,7 +12,7 @@ import ReadStory from "./containers/ReadStory";
 function App() {
   return (
     <StoryProvider>
-      <div className="app">
+      <div className="wrapper">
         <Router>
           <Header />
           <Switch>
