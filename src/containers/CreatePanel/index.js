@@ -66,6 +66,7 @@ const CreatePanel = () => {
     const {checked} = e.currentTarget
 
     setAddText(checked)
+    setText('')
 
   }
 
@@ -92,7 +93,7 @@ const CreatePanel = () => {
                 style={{display: "none"}}
               />
               <label htmlFor="textAdd">Add Text</label>
-              <input type="checkbox" value={addText} checked={addText} id="textAdd" onChange={(e) => handleTextAdd(e)}/>
+              <input style={{display: "none"}} type="checkbox" value={addText} checked={addText} id="textAdd" onChange={(e) => handleTextAdd(e)}/>
             </div>
           </div>
           <div className="storyPanel__container">

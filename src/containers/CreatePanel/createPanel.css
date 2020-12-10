@@ -1,18 +1,20 @@
+.createPanel {
+  padding: 20px 0;
+}
+
 .createPanel__button {
   padding: 10px 20px;
   display: block;
+  cursor: pointer;
 }
 
 .createPanel__button--return {
   margin-right: auto;
 }
-/* createPanel__button--submit */
-/* createPanel__button--delete */
-
 
 .storyPanel {
   display: grid;
-  height: 80vh;
+  height: 60vh;
   grid-template-columns: 150px auto;
   grid-gap: 100px;
 }
