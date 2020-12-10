@@ -101,12 +101,12 @@ const CreatePanel = () => {
             </div>
           </div>
           <div className="storyPanel__container">
+            {image && <div className="storyPanel__image-container">
+                <img className="storyPanel__image" src={image} alt="" />
+            </div>}
             {addText && <div className="storyPanel__text-container">
               <textarea value={text} rows="20" cols="40" placeholder={"Please enter in story text"}  onChange={(e) => handleText(e)}/>
             </div>}
-            <div className="storyPanel__image-container">
-              {image && <img className="storyPanel__image" src={image} alt="" />}
-            </div>
           </div>
         </div>
       </div>
