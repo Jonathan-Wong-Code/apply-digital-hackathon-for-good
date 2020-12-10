@@ -74,9 +74,9 @@ const CreatePanel = () => {
   return (
     <div className="createPanel">
       <div style={{display: "flex", }}>
-        <Link to="/createStory" class="createPanel__button createPanel__button--return">Return to Storyboard</Link>
-        <button class="createPanel__button createPanel__button--save" onClick={(e) => handleSubmit(e)}>Save</button>
-        <button class="createPanel__button createPanel__button--delete" onClick={(e) => handleSubmit(e)}>Delete</button>
+        <Link to="/createStory" className="createPanel__button createPanel__button--return">Return to Storyboard</Link>
+        <button className="createPanel__button createPanel__button--save" onClick={(e) => handleSubmit(e)}>Save</button>
+        <button className="createPanel__button createPanel__button--delete" onClick={(e) => handleSubmit(e)}>Delete</button>
       </div>
 
       <div style={{marginTop: "50px", display:'block'}}>
@@ -94,7 +94,7 @@ const CreatePanel = () => {
                 style={{display: "none"}}
               />
               <label>Draw</label>
-              <label htmlFor="textAdd">Add Text</label>
+              <label htmlFor="textAdd" style={{fontSize: '30px'}}>T</label>
               <input style={{display: "none"}} type="checkbox" value={addText} checked={addText} id="textAdd" onChange={(e) => handleTextAdd(e)}/>
               <label>Stamps</label>
               <label>Shapes</label>

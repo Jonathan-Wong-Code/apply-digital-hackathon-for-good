@@ -3,14 +3,33 @@
 }
 
 .createPanel__button {
-  padding: 10px 20px;
-  display: block;
+
+  font-size: 16px;
+  line-height: 1.4;
   cursor: pointer;
+  padding: 6px 12px;
+}
+
+.createPanel__button:hover {
+  background: black;
+  color: white;
+  transform: translateY(-3px);
 }
 
 .createPanel__button--return {
   margin-right: auto;
 }
+
+.createPanel__button--save {
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-right: 12px;
+}
+
+.createPanel__button--delete {
+  
+}
+
 
 .storyPanel {
   display: grid;
@@ -42,7 +61,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  max-width: 95%;
+  max-width: 100%;
   height: 100%;
   flex-basis: 80%;
   border: 1px solid black;
