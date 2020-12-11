@@ -11,29 +11,42 @@ import rightArrow from "../../images/rightArrow.png";
 import breadCrumb from "../../images/breadcrumbArrow.png";
 
 const EditPanel = () => {
-  const { updatePanel, deletePanel } = useStoryDispatch();
-  const stories = useStoryState();
-  const params = useParams();
-  const [addText, setAddText] = useState(false);
-  const history = useHistory();
-  const [title, setTitle] = useState("");
-  const [caption, setCaption] = useState("");
-  const [image, setImage] = useState("");
+  
+const { updatePanel, deletePanel } = useStoryDispatch();
+const stories = useStoryState();
+const params = useParams()
+const [addText, setAddText] = useState(false);
+const history = useHistory();
+const [title, setTitle] = useState('')
+const [caption, setCaption] = useState('');
+const [image, setImage] = useState('');
 
-  const contextStory = stories.find((story) => story.id === params.id);
-  const indexOfSlide = stories.indexOf(contextStory);
+const contextStory = stories.find(story => story.id === params.id)
+const indexOfSlide = stories.indexOf(contextStory)
 
-  useEffect(() => {
-    if (params && params.id) {
-      const { img, text, title } = contextStory;
-      if (text) {
-        setAddText(true);
-        setCaption(text);
-      }
-      if (img) setImage(img);
-      if (title) setTitle(title);
+
+useEffect(() => {
+    const contextStory = stories.find(story => story.id === params.id)
+    const {img, text, title} = contextStory;
+    if (text) {
+      setAddText(true)
+      setCaption(text)
     }
-  }, [params, stories, contextStory]);
+    if (img) setImage(img)
+    if (title) setTitle(title)
+    
+    if (!text) {
+      setAddText(false)
+      setCaption('')
+    }
+    if (!img) {
+      setImage('')
+      setCaption('')
+    }
+    if (!title) {
+      setTitle('')
+    }
+}, [params, stories])
 
   const onFileChange = (e) => {
     const file = e.currentTarget.files[0];
@@ -74,8 +87,9 @@ const EditPanel = () => {
     const newPanel = {
       img: image,
       text: caption,
-      id: params.id,
-    };
+      title,
+      id: params.id
+    }
 
     updatePanel(newPanel);
     history.push("/createStory");
@@ -98,8 +112,9 @@ const EditPanel = () => {
       const newPanel = {
         img: image,
         text: caption,
-        id: params.id,
-      };
+        title,
+        id: params.id
+      }
 
       updatePanel(newPanel);
       history.push(`/editPanel/${stories[indexOfSlide + 1].id}`);
@@ -111,8 +126,9 @@ const EditPanel = () => {
       const newPanel = {
         img: image,
         text: caption,
-        id: params.id,
-      };
+        title,
+        id: params.id
+      }
 
       updatePanel(newPanel);
       history.push(`/editPanel/${stories[indexOfSlide - 1].id}`);
