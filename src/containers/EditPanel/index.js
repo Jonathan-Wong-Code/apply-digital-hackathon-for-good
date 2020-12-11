@@ -26,8 +26,7 @@ const indexOfSlide = stories.indexOf(contextStory)
 
 
 useEffect(() => {
-
-  if (params && params.id) {
+    const contextStory = stories.find(story => story.id === params.id)
     const {img, text, title} = contextStory;
     if (text) {
       setAddText(true)
@@ -35,8 +34,18 @@ useEffect(() => {
     }
     if (img) setImage(img)
     if (title) setTitle(title)
-  }
-
+    
+    if (!text) {
+      setAddText(false)
+      setCaption('')
+    }
+    if (!img) {
+      setImage('')
+      setCaption('')
+    }
+    if (!title) {
+      setTitle('')
+    }
 }, [params, stories])
 
 
@@ -81,6 +90,7 @@ useEffect(() => {
     const newPanel =  {
       img: image,
       text: caption,
+      title,
       id: params.id
     }
 
@@ -105,6 +115,7 @@ useEffect(() => {
       const newPanel =  {
         img: image,
         text: caption,
+        title,
         id: params.id
       }
 
@@ -119,6 +130,7 @@ useEffect(() => {
       const newPanel =  {
         img: image,
         text: caption,
+        title,
         id: params.id
       }
 
